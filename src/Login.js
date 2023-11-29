@@ -6,11 +6,11 @@ function Login({ auth }) {
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value)
-  };
+  }
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value)
-  };
+  }
 
 
   /**
@@ -18,7 +18,7 @@ function Login({ auth }) {
    * this is like really fucking stupid and bad security but hey i can't
    * be bothered and it doesn't really matter all that much and who would ever 
    * wanna fuck over some innocent cats who visit my backyard from time to time
-   * they are just trynna survive and we are just helping them to go through the winter
+   * they are just trynna survive and we are just helping them to get through the winter
    */
   const handleSubmit = (event) => {
     event.preventDefault();

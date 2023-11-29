@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const Adjustment = () => {
-    const [sliderValue, setSliderValue] = useState(1);
+    const [sliderValue, setSliderValue] = useState(5)
+    const [loading, setLoading] = useState(false)
 
     const handleSliderChange = (event) => {
-        setSliderValue(event.target.value);
-    };
+        setSliderValue(event.target.value)
+    }
 
     const handleSubmit = () => {
-        // Handle the submission logic here
-        console.log(`Slider Value: ${sliderValue}`);
+        setLoading(true)
+
+        // 2 second delay
+        setTimeout(() => {
+            setLoading(false);
+            console.log(`Slider Value: ${sliderValue}`)
+            // Add your submission logic here
+        }, 2000)
     };
 
     return (
@@ -22,9 +29,12 @@ const Adjustment = () => {
                 value={sliderValue} 
                 onChange={handleSliderChange} 
             />
-            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={handleSubmit} disabled={loading}>
+                {loading ? 'Loading...' : 'Submit'}
+            </button>
+            {loading && <div className="spinner"></div>}
         </div>
-    );
-};
+    )
+}
 
-export default Adjustment;
+export default Adjustment
