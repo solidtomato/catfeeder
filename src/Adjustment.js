@@ -10,13 +10,10 @@ const Adjustment = () => {
 
     const handleSubmit = () => {
         setLoading(true)
-
-        // 2 second delay
-        setTimeout(() => {
-            setLoading(false);
-            console.log(`Slider Value: ${sliderValue}`)
-            // Add your submission logic here
-        }, 2000)
+        fetch(`http://192.168.68.65/${sliderValue - 1}`)
+            .then((res) => console.log(res.status))
+            .catch((err) => console.error(err))
+            .finally(() => setLoading(false))
     };
 
     return (
